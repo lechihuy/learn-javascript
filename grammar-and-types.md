@@ -9,3 +9,6 @@ Javascript là case-sensitive (tức là phân biệt các các ký tự hoa th�
 ```js
 let Früh = "foobar"
 ```
+Nhưng biến `früh` không giống với `Früh` vì Javascript là case-sentitive.
+Trong Javascript, các câu lệnh được ngăn cách nhau bởi dấu chấm phẩy (;).
+Một dấu chẩm phẩy là không cần thiết sau mỗi câu lệnh nếu nó được viết trên dòng riêng của nó. Nhưng nếu có nhiều hơn một câu lệnh trên một dòng, chúng ta phải ngăn cách chúng bằng dấu chấm phẩy.
