@@ -118,3 +118,25 @@ Khi bạn đánh giá một biến `null`, nó được xem như là `0` trong n
 var n = null;
 console.log(n * 32); // Sẽ trả về 0
 ```
+## Phạm vi biến (Variable scope)
+khi bạn khai báo một biến ở ngoài bất kỳ hàm nào, nó được gọi là global variable, bởi vì nó có sẵn cho bất kỳ đoạn code nào trong document hiện tại. Khi bạn khai báo một biến trong một hàm, nó gọi là local variable, bởi vì nó chỉ có sẵn trong hàm đó mà thôi.
+
+Javascript trước ECMAScript 2015 không có cú pháp phạm vi khối. Thay vào đó, a một được khai báo trong một khối là cục bộ của hàm (hoặc phạm vi toàn cục) mà khối nằm trong đó.
+
+Chẳng hạn, đoạn code này sẽ trả về `5`, bởi vì phạm vị của biến `x` là global context (hoặc function context nếu code đó là một phần của hàm). Phạm vi của `x` là không giới hạn ở khối lệnh `if` luôn đúng này.
+
+```js
+if (true) {
+  var x = 5;
+}
+console.log(x);  // x là 5
+```
+
+Hành vi này thay đổi khi sử dụng cách khai báo với từ khóa `let`.
+
+```js
+if (true) {
+  let y = 5;
+}
+console.log(y);  // ReferenceError: y is not defined
+```
