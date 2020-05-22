@@ -1,2 +1,11 @@
 # Cấu trúc và kiểu dữ liệu
-Chương này nói về cấu trúc cơ bản của Javascript, các kiểu khai báo, kiểu dữ liệu và literal (một giá trị mà nó thể hiện chính bản thân nó, ví dụ số 12 là đại diện cho kiểu số, "hello" là đại diện cho kiểu chuỗi).
+Chương này nói về cấu trúc cơ bản của Javascript, các kiểu khai báo, kiểu dữ liệu và literal.
+
+Nói một chút về thuật ngữ "literal" trong Javascript, nó là một giá trị mà thể hiện chính bản thân nó. Chẳng hạn, số 12 là một literal vì nó đại diện cho kiểu dữ liệu số nguyên, "hello" cũng là một literal vì nó đại diện cho kiểu chuỗi.
+
+## Cơ bản
+Javascript mượn hầu hết các cú pháp từ Java, C và C++, nhưng cũng có chút ảnh hưởng bởi Awk, Perl và Python.
+Javascript là case-sensitive (tức là phân biệt các các ký tự hoa thường) và sử dụng ký tự Unicode. Ví dụ từ Früh (nghĩa là "sớm" trong tiếng Đức) có thể sử dụng như một tên biến
+```js
+let Früh = "foobar"
+```
