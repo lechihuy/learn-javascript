@@ -66,3 +66,55 @@ Bạn có thể khai báo một biến trong hai cách:
 Bạn cũng có thể đơn giản chỉ định một giá trị thành một biến. Ví dụ, `x = 42`. Cú pháp này tạo ra một biến toàn cầu chưa khai báo (undeclared global variable). Nó cũng tạo ra một cảnh báo Javascript nghiêm ngặt. Undeclared global variable có thể thường dẫn đến các hành vi không mong muốn. Do đó, không khuyến khích sử dụng undeclared global variable.
 
 ## Đánh giá các biến
+Một biến được khai báo mà không gán giá trị thì được chỉ định với giá trị là `undefined`.
+
+Sự cố gắng truy cập một biến chưa được khai báo (undeclared variable) sẽ trả về một ngoại lệ (exception) `ReferenceError`.
+
+```js
+var a;
+console.log('Giá trị biến a là ' + a); // Giá trị biến a là undefined
+
+console.log('Giá trị biến b là ' + b); // Giá trị biến b là undefined
+var b;
+// Bạn sẽ hiểu vấn đề này khi tìm hiểu đến "Variable hoisting"
+
+console.log('Giá trị biến c là ' + c); // Uncaught ReferenceError: c is not defined
+
+let x;
+console.log('Giá trị biến x là ' + x); // The value of x is undefined
+
+console.log('Giá trị biến y là ' + y); // Uncaught ReferenceError: y is not defined
+let y; 
+```
+
+Bạn có thể sử dụng `undefined` dể kiểm tra liệu một biến có giá trị hay không. Theo như đoạn code này, biến `input` không được gán giá trị, và câu lệnh `if` sẽ là `true`.
+
+```js
+var input;
+if (input === undefined) {
+  doThis();
+} else {
+  doThat();
+}
+```
+
+Giá trị `undefined` được xem là `false` khi sử dụng trong bối cảnh boolean. Ví dụ, đoạn code này thực thi hàm `myFunction` bởi vì phần tử `myArray` là `undefined`.
+
+```js
+var myArray = [];
+if (!myArray[0]) myFunction();
+```
+
+Giá trị `undefinied` sẽ chuyển thành `NaN` khi sử dụng trong bối cảnh numeric.
+
+```js
+var a;
+a + 2;  // NaN + 2
+```
+
+Khi bạn đánh giá một biến `null`, nó được xem như là `0` trong bối cảnh numeric và `false` trong bối cảnh boolean. Ví dụ:
+
+```js
+var n = null;
+console.log(n * 32); // Sẽ trả về 0
+```
