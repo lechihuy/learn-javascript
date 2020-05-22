@@ -61,4 +61,8 @@ Một vài ví dụ cho tên hợp pháp là `Number_hits`, `temp99`, `$credit`,
 ## Khai báo biến (Declaring variables)
 Bạn có thể khai báo một biến trong hai cách:
 * Với từ khóa `var`. Ví dụ `var x = 42`. Cú pháp này được có thể sử dụng để khai báo cho local variable và biến toàn cục (global variable), tùy thuộc vào bối cảnh thực thi.
-* Với từ khóa `let` hoặc `const`. Ví dụ `let y = 13`. Cú pháp này có thể được sử dụng để khai báo local variable trong khối phạm vi.
+* Với từ khóa `let` hoặc `const`. Ví dụ `let y = 13`. Cú pháp này có thể được sử dụng để khai báo local variable trong block-scoped.
+
+Bạn cũng có thể đơn giản chỉ định một giá trị thành một biến. Ví dụ, `x = 42`. Cú pháp này tạo ra một biến toàn cầu chưa khai báo (undeclared global variable). Nó cũng tạo ra một cảnh báo Javascript nghiêm ngặt. Undeclared global variable có thể thường dẫn đến các hành vi không mong muốn. Do đó, không khuyến khích sử dụng undeclared global variable.
+
+## Đánh giá các biến
