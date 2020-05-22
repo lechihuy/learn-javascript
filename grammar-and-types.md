@@ -19,9 +19,9 @@ Một dấu chẩm phẩy là không cần thiết sau mỗi câu lệnh nếu n
 
 > ECMAScript, một chuẩn hóa ngôn ngữ client, cũng ràng buộc tự động thêm các dấu chấm phẩy để kết thúc câu lệnh.
 
-Nó được xem xét như là thực tiễn tốt nhất, tuy nhiên, luôn luôn viết một dấu chấm phẩy sau mỗi câu lệnh, thậm chí khi nó không thật sự cần thiết. Điều này giảm thiếu cơ hội các bug (lỗi trong lập trình) đến với code của bạn.
+Nó được xem xét như là thực tiễn tốt nhất, tuy nhiên, luôn luôn viết một dấu chấm phẩy sau mỗi câu lệnh, thậm chí khi nó không thật sự cần thiết. Điều này giảm thiếu cơ hội các lỗi trong lập trình (bug) đến với code của bạn.
 
-Nguồn văn bản của mã Javascript được quét từ trái sang phải, và được chuyển thành một chuỗi các yếu tố đầu vào như token, control characters (ký tự điều khiển), line terminators (dấu kết thúc dòng), comments (chú thích) hoặc whitespace (Khoảng trắng, tab và ký tự dòng mới được xem là whitespace).
+Nguồn văn bản của mã Javascript được quét từ trái sang phải, và được chuyển thành một chuỗi các yếu tố đầu vào như token, ký tự điều khiển (control characters), dấu kết thúc dòng (line terminators), chú thích (comments) hoặc whitespace (Khoảng trắng, tab và ký tự dòng mới được xem là whitespace).
 
 ## Chú thích (Comments)
 Cú pháp comment giống với C++ cũng như nhiều ngôn ngữ khác:
@@ -43,8 +43,22 @@ Các comment hành xử như whitespace và bị loại bỏ trong quá trình t
 ## Kiểu khai báo (Declarations)
 Javascript có ba kiểu khai báo
 
-`var`: khởi tạo một variable (biến), tùy chọn khởi tạo nó thành một giá trị.
+`var`: khởi tạo một biến (variable), tùy chọn khởi tạo nó thành một giá trị.
 
-`let`: khởi tạo một block-scoped (khối phạm vị), local variable (biến cục bộ), tùy chọn khởi tạo nó thành một giá trị.
+`let`: khởi tạo một khối phạm vi (block-scoped), biến cục bộ (local variable), tùy chọn khởi tạo nó thành một giá trị.
 
-`const`: khởi tạo một block-scoped, chỉ được đọc gọi là hằng số.
+`const`: khởi tạo một block-scoped, chỉ được đọc gọi là hằng số (constant).
+
+## Biến (Variables)
+Bạn sử dụng biến như các tên tượng trưng cho giá trị cho ứng dụng. Các tên của biến, được gọi là định danh (identifiers), tuân thủ các nguyên tắc nhất định.
+
+Định danh Javascript nên bắt đầu với chữ cái, dấu gạch dưới (`_`), hoặc dấu dollar (`$`). Các ký tự tiếp theo có thể là số (`0`-`9`).
+
+Bởi vì Javascript là case-sentitive, các chữ cái bao gồm các ký tự từ "`A`" đến "`Z`" (chữ hoa) cũng như "`a`" đến "`z`" (chữ thường).
+
+Một vài ví dụ cho tên hợp pháp là `Number_hits`, `temp99`, `$credit`, và `_name`.
+
+## Khai báo biến (Declaring variables)
+Bạn có thể khai báo một biến trong hai cách:
+* Với từ khóa `var`. Ví dụ `var x = 42`. Cú pháp này được có thể sử dụng để khai báo cho local variable và biến toàn cục (global variable), tùy thuộc vào bối cảnh thực thi.
+* Với từ khóa `let` hoặc `const`. Ví dụ `let y = 13`. Cú pháp này có thể được sử dụng để khai báo local variable trong khối phạm vi.
