@@ -23,7 +23,7 @@ Nó được xem xét như là thực tiễn tốt nhất, tuy nhiên, luôn lu�
 
 Nguồn văn bản của mã Javascript được quét từ trái sang phải, và được chuyển thành một chuỗi các yếu tố đầu vào như token, control characters (ký tự điều khiển), line terminators (dấu kết thúc dòng), comments (chú thích) hoặc whitespace (Khoảng trắng, tab và ký tự dòng mới được xem là whitespace).
 
-## Comment
+## Chú thích (Comments)
 Cú pháp comment giống với C++ cũng như nhiều ngôn ngữ khác:
 
 ```js
@@ -39,3 +39,12 @@ Các comment hành xử như whitespace và bị loại bỏ trong quá trình t
 > **Chú ý:** Bạn có thể cũng thấy một loại cú pháp comment thứ ba tại phần bắt đầu của một vài file Javascript, trông như thế này `#!/usr/bin/env node`.
 >
 > Đây được gọi là cú pháp hashbang comment, một loại comment đặc biệt dùng để chỉ định đường dẫn đến một Javascript engine cụ thể để thực thi code.
+
+## Kiểu khai báo (Declarations)
+Javascript có ba kiểu khai báo
+
+`var`: khởi tạo một variable (biến), tùy chọn khởi tạo nó thành một giá trị.
+
+`let`: khởi tạo một block-scoped (khối phạm vị), local variable (biến cục bộ), tùy chọn khởi tạo nó thành một giá trị.
+
+`const`: khởi tạo một block-scoped, chỉ được đọc gọi là hằng số.
