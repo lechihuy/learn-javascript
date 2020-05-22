@@ -20,3 +20,22 @@ Một dấu chẩm phẩy là không cần thiết sau mỗi câu lệnh nếu n
 > ECMAScript, một chuẩn hóa ngôn ngữ client, cũng ràng buộc tự động thêm các dấu chấm phẩy để kết thúc câu lệnh.
 
 Nó được xem xét như là thực tiễn tốt nhất, tuy nhiên, luôn luôn viết một dấu chấm phẩy sau mỗi câu lệnh, thậm chí khi nó không thật sự cần thiết. Điều này giảm thiếu cơ hội các bug (lỗi trong lập trình) đến với code của bạn.
+
+Nguồn văn bản của mã Javascript được quét từ trái sang phải, và được chuyển thành một chuỗi các yếu tố đầu vào như token, control characters (ký tự điều khiển), line terminators (dấu kết thúc dòng), comments (chú thích) hoặc whitespace (Khoảng trắng, tab và ký tự dòng mới được xem là whitespace).
+
+## Comment
+Cú pháp comment giống với C++ cũng như nhiều ngôn ngữ khác:
+
+```js
+// một dòng comment
+ 
+/* Đây là một comment dài hơn, 
+ * Nhiều dòng comment
+ */
+```
+
+Các comment hành xử như whitespace và bị loại bỏ trong quá trình thực thi code.
+
+> **Chú ý:** Bạn có thể cũng thấy một loại cú pháp comment thứ ba tại phần bắt đầu của một vài file Javascript, trông như thế này `#!/usr/bin/env node`.
+>
+> Đây được gọi là cú pháp hashbang comment, một loại comment đặc biệt dùng để chỉ định đường dẫn đến một Javascript engine cụ thể để thực thi code.
