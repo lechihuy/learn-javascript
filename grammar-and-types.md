@@ -5,13 +5,13 @@ Nói một chút về thuật ngữ "literal" trong Javascript, nó là một gi
 
 ## Cơ bản
 Javascript mượn hầu hết các cú pháp từ Java, C và C++, nhưng cũng có chút ảnh hưởng bởi Awk, Perl và Python.
-Javascript là case-sensitive (tức là phân biệt các các ký tự hoa thường) và sử dụng ký tự Unicode. Ví dụ từ Früh (nghĩa là "sớm" trong tiếng Đức) có thể sử dụng như một tên biến
+Javascript là case-sensitive (tức là phân biệt các các ký tự hoa thường) và sử dụng ký tự Unicode. Ví dụ từ "sớm" có thể sử dụng như một tên biến
 
 ```js
-let Früh = "foobar"
+let sớm = "foobar"
 ```
 
-Nhưng biến `früh` không giống với `Früh` vì Javascript là case-sentitive.
+Nhưng biến `sớm` không giống với `Sớm` vì Javascript là case-sentitive.
 
 Trong Javascript, các câu lệnh được ngăn cách nhau bởi dấu chấm phẩy (;).
 
