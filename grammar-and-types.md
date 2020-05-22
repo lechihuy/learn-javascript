@@ -81,7 +81,7 @@ var b;
 console.log('Giá trị biến c là ' + c); // Uncaught ReferenceError: c is not defined
 
 let x;
-console.log('Giá trị biến x là ' + x); // The value of x is undefined
+console.log('Giá trị biến x là ' + x); // Giá trị biến x là undefined
 
 console.log('Giá trị biến y là ' + y); // Uncaught ReferenceError: y is not defined
 let y; 
@@ -98,21 +98,21 @@ if (input === undefined) {
 }
 ```
 
-Giá trị `undefined` được xem là `false` khi sử dụng trong bối cảnh boolean. Ví dụ, đoạn code này thực thi hàm `myFunction` bởi vì phần tử `myArray` là `undefined`.
+Giá trị `undefined` được xem là `false` khi sử dụng trong bối cảnh boolean (boolean context). Ví dụ, đoạn code này thực thi hàm `myFunction` bởi vì phần tử `myArray` là `undefined`.
 
 ```js
 var myArray = [];
 if (!myArray[0]) myFunction();
 ```
 
-Giá trị `undefinied` sẽ chuyển thành `NaN` khi sử dụng trong bối cảnh numeric.
+Giá trị `undefinied` sẽ chuyển thành `NaN` khi sử dụng trong numeric context.
 
 ```js
 var a;
 a + 2;  // NaN + 2
 ```
 
-Khi bạn đánh giá một biến `null`, nó được xem như là `0` trong bối cảnh numeric và `false` trong bối cảnh boolean. Ví dụ:
+Khi bạn đánh giá một biến `null`, nó được xem như là `0` trong numeric context và `false` trong boolean context. Ví dụ:
 
 ```js
 var n = null;
