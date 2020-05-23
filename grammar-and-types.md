@@ -223,3 +223,47 @@ Các global variable trong thực tế là các thuộc tính của global objec
 Trong trang web, global object là `window`, vì vậy bạn có thể thiết lập và truy cập các global variable thông qua cú pháp `window.variable`.
 
 Do đó, bạn có thể truy cập global variable được khai báo trong 1 window hoặc frame từ một window hoặc frame khác bằng cách chỉ định tên `window` hoặc `frame`. Chẳng hạn, nếu một biến có tên là `phoneNumber` trong document. Bạn có thể gọi đến biến này từ một frame với `parent.phoneNumber`.
+
+## Constant
+Bạn có thể tạo một biến chỉ để đọc, gọi là hằng số với từ khóa `const`.
+
+Cú pháp định danh một constant rất giống với bất kỳ định danh biến nào. Nó phải bắt đầu với chữ cái, dấu gạch dưới hoặc dấu dollar (`$`), và có thể chứa ký tự alphabet, số, và ký tự gạch dưới.
+
+```js
+const PI = 3.14;
+```
+
+Một constant không thể thay đổi giá trị thông qua phép gán hoặc khai báo lại trong suốt kịch bản đang chạy. Nó bắt buộc phải được khởi tạo với một giá trị.
+
+Nguyên tắc phạm vi của constant cũng tương tự như phạm vi biến `let`. Nếu từ khóa `const` bị bỏ qua, định danh được coi là đại diện một undeclared variable.
+
+Bạn không thể khai báo một constant với tên giống với một hàm hoặc một biến trong cùng một phạm vi.
+
+```js
+// Điều này dẫn đến lỗi
+function f() {};
+const f = 5;
+
+// Điều này cũng dẫn đến lỗi
+function f() {
+  const g = 5;
+  var g;
+
+  // ...
+}
+```
+
+Tuy nhiên, các thuộc tính trong object được gán cho constant không được bảo vệ, vì vậy các câu lệnh dưới đây được thực thi mà không có vấn đề gì.
+
+```js
+const MY_OBJECT = {'key': 'value'};
+MY_OBJECT.key = 'otherValue';
+```
+
+Tương tự, nội dung trong array cũng không được bảo vệ.
+
+```js
+const MY_ARRAY = ['HTML','CSS'];
+MY_ARRAY.push('JAVASCRIPT');
+console.log(MY_ARRAY); // ['HTML','CSS','JAVASCRIPT'];
+```
