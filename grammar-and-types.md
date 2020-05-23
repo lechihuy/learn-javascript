@@ -1,8 +1,6 @@
 # Cấu trúc và kiểu dữ liệu
 Chương này nói về cấu trúc cơ bản của Javascript, các kiểu khai báo, kiểu dữ liệu và literal.
 
-Nói một chút về thuật ngữ "literal" trong Javascript, nó là một giá trị mà thể hiện chính bản thân nó. Chẳng hạn, số 12 là một literal vì nó đại diện cho kiểu dữ liệu số nguyên, "hello" cũng là một literal vì nó đại diện cho kiểu chuỗi.
-
 ## Cơ bản
 Javascript mượn hầu hết các cú pháp từ Java, C và C++, nhưng cũng có chút ảnh hưởng bởi Awk, Perl và Python.
 Javascript là case-sensitive (tức là phân biệt các các ký tự hoa thường) và sử dụng ký tự Unicode. Ví dụ từ "sớm" có thể sử dụng như một tên biến
@@ -118,6 +116,7 @@ Khi bạn đánh giá một biến `null`, nó được xem như là `0` trong n
 var n = null;
 console.log(n * 32); // Sẽ trả về 0
 ```
+
 ## Phạm vi biến (Variable scope)
 khi bạn khai báo một biến ở ngoài bất kỳ hàm nào, nó được gọi là global variable, bởi vì nó có sẵn cho bất kỳ đoạn code nào trong document hiện tại. Khi bạn khai báo một biến trong một hàm, nó gọi là local variable, bởi vì nó chỉ có sẵn trong hàm đó mà thôi.
 
@@ -139,4 +138,28 @@ if (true) {
   let y = 5;
 }
 console.log(y);  // ReferenceError: y is not defined
+```
+
+## Variable hoisting
+Một điều bất thường trong biến Javascript là bạn có thể gọi một biến trước khi nó được khai báo mà không xuất hiện một exception nào.
+
+Khái niệm này được biết đến là hoisting. Các biến trong Javascript, theo một nghĩa nào đó, được "hoisted" (hoặc "lifted") lên trên đầu của hàm hoặc câu lệnh. Tuy nhiên các biến được hoisted trả về giá trị là `undefined`. Thậm chí nếu bạn khai báo hoặc khởi tạo sau khi bạn gọi biến này, nó vẫn trả về giá trị `undefined`.
+
+```js
+/**
+ * Ví dụ 1
+ */
+console.log(x === undefined); // true
+var x = 3;
+
+/**
+ * Ví dụ 2
+ */
+// Trả về giá trị undefined
+var myvar = 'my value';
+ 
+(function() {
+  console.log(myvar); // undefined
+  var myvar = 'local value';
+})();
 ```
