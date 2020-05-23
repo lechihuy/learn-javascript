@@ -196,3 +196,4 @@ let x = 3;
 ```
 
 ## Function hoisting
+Trong trường hợp của hàm, chỉ có khai báo hàm (function declaration) là được hoisted, biểu thức hàm (function expression) thì không.
