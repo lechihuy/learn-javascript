@@ -197,3 +197,29 @@ let x = 3;
 
 ## Function hoisting
 Trong trường hợp của hàm, chỉ có khai báo hàm (function declaration) là được hoisted, biểu thức hàm (function expression) thì không.
+
+```js
+/* Function declaration */
+
+foo(); // "bar"
+
+function foo() {
+  console.log('bar');
+}
+
+
+/* Function expression */
+
+baz(); // TypeError: baz is not a function
+
+var baz = function() {
+  console.log('bar2');
+};
+```
+
+## Global variables
+Các global variable trong thực tế là các thuộc tính của global object.
+
+Trong trang web, global object là `window`, vì vậy bạn có thể thiết lập và truy cập các global variable thông qua cú pháp `window.variable`.
+
+Do đó, bạn có thể truy cập global variable được khai báo trong 1 window hoặc frame từ một window hoặc frame khác bằng cách chỉ định tên `window` hoặc `frame`. Chẳng hạn, nếu một biến có tên là `phoneNumber` trong document. Bạn có thể gọi đến biến này từ một frame với `parent.phoneNumber`.
