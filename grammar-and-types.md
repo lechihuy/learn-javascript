@@ -143,7 +143,7 @@ console.log(y);  // ReferenceError: y is not defined
 ## Variable hoisting
 Một điều bất thường trong biến Javascript là bạn có thể gọi một biến trước khi nó được khai báo mà không xuất hiện một exception nào.
 
-Khái niệm này được biết đến là hoisting. Các biến trong Javascript, theo một nghĩa nào đó, được "hoisted" (hoặc "lifted") lên trên đầu của hàm hoặc câu lệnh. Tuy nhiên các biến được hoisted trả về giá trị là `undefined`. Thậm chí nếu bạn khai báo hoặc khởi tạo sau khi bạn gọi biến này, nó vẫn trả về giá trị `undefined`.
+Khái niệm này được biết đến là hoisting. Các biến trong Javascript, theo một nghĩa nào đó, được "hoisted" (hoặc "lifted") lên trên đầu của hàm hoặc câu lệnh. Tuy nhiên các biến được hoisted trả về giá trị là `undefined`. Thậm chí nếu bạn khai báo hoặc khởi tạo sau khi bạn sử dụng hoặc gọi biến này, nó vẫn trả về giá trị `undefined`.
 
 ```js
 /**
@@ -163,3 +163,36 @@ var myvar = 'my value';
   var myvar = 'local value';
 })();
 ```
+
+Đoạn code trên sẽ được giải thích như:
+
+```js
+/**
+ * Ví dụ 1
+ */
+console.log(x === undefined); // true
+var x = 3;
+
+/**
+ * Ví dụ 2
+ */
+// Trả về giá trị undefined
+var myvar = 'my value';
+ 
+(function() {
+  var myvar;
+  console.log(myvar); // undefined
+  myvar = 'local value';
+})();
+```
+
+Bởi vì trong hoisting, tất cả các câu lệnh `var` trong hàm nên được đặt càng gần vị trí đầu của hàm càng tốt. Thực tế này làm tăng sự rõ ràng của code.
+
+Trong ECMAScript 2015, `let` và `const` được hoisted nhưng không được khởi tạo. Việc gọi biến trong block trước khi khai báo biến trả về `ReferenceError` exception. Bởi vì biến nằm trong "vùng chết tạm thời" từ khi bắt đầu block cho đến khi khai báo được xử lý.
+
+```js
+console.log(x); // ReferenceError
+let x = 3;
+```
+
+## Function hoisting
