@@ -281,3 +281,57 @@ Tiêu chuẩn mới nhất của ECMAScript định nghĩa tám kiểu dữ li�
  6. String. Một chuỗi các ký tự đại diện cho giá trị văn bản, ví dụ `"Howdy"`.
  7. Symbol (mới trong ECMAScript 2015). Một kiểu dữ liệu khởi tạo là phiên bản duy nhất và bất biến.
 - và Object
+
+Mặc dù các kiểu dữ liệu này tương đối ít, nhưng chúng cho phép bạn thực hiện các hàm hữu ích trong ứng dụng của bạn. `Objects` và `functions` là các yếu tố cơ bản trong ngôn ngữ. Bạn có thể nghĩ object như các container của giá trị, và hàm như thủ tục mà script của bạn phải thực hiện.
+
+### Bộ chuyển đổi kiểu dữ liệu
+Javascript là ngôn ngữ kiểu dữ liệu động. Điều này có nghĩa là bạn không cần phải chỉ định kiểu dữ liệu cho một biến khi bạn khai báo nó. Điều này cũng có nghĩa là các kiểu dữ liệu được tự động chuyển đổi khi cần thiết trong suốt quá trình script thực thi.
+
+Vì vậy, cho ví dụ, bạn có thể định nghĩa một biến như sau:
+
+```js
+var answer = 42;
+```
+
+Và sau đó, bạn đã có thể chỉ định biến tương tự là một giá trị chuỗi, ví dụ:
+
+```js
+answer = "Hello world";
+```
+
+Vì Javascript là kiểu dữ liệu động, việc chỉ định này sẽ không tạo ra lỗi.
+
+### Số và toán tử "+"
+Trong biểu thức liên quan đến số và chuỗi và toán tử `+`. Javascript sẽ chuyển đổi giá trị số sang chuỗi. Ví dụ, xem xét các câu lệnh bên dưới:
+
+```js
+x = 'The answer is ' + 42 // "The answer is 42"
+y = 42 + ' is the answer' // "42 is the answer"
+```
+
+Với các toán tử khác, Javascript không chuyển số thành chuỗi. Ví dụ:
+
+```js
+'37' - 7 // 30
+'37' + 7 // "377"
+```
+
+### Chuyển chuỗi thành số
+Trong trường hợp một giá trị đại diện cho một số được lưu dưới dạng chuỗi, có nhiều phương phương thức để chuyển đổi.
+* `parseInt()`
+* `parseFloat()`
+`parseInt` chỉ trả về các số nguyên, vì vậy nó sử dụng để làm tròn số thập phân.
+
+> Ngoài ra, một thực tế tốt cho `parseInt` là luôn luôn bao gồm tham số *radix* (cơ số). Tham số *radix* được sử dụng để chỉ định hệ thống số nào sẽ được sử dụng.
+
+```js
+parseInt('101', 2) // 5
+```
+
+Một phương thúc thay thể cho việc nhận một số từ chỗi là sử dụng toán tử `+`:
+
+```js
+'1.1' + '1.1' // '1.11.1'
+(+'1.1') + (+'1.1') // 2.2   
+// Chú ý: các dấu ngoặc đơn được thêm vào cho rõ ràng, không bắt buộc.
+```
