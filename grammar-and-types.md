@@ -47,7 +47,7 @@ Javascript có ba kiểu khai báo
 
 `const`: khởi tạo một block-scoped, chỉ được đọc gọi là hằng số (constant).
 
-## Variables
+### Variables
 Bạn sử dụng biến như các tên tượng trưng cho giá trị cho ứng dụng. Các tên của biến, được gọi là định danh (identifiers), tuân thủ các nguyên tắc nhất định.
 
 Định danh Javascript nên bắt đầu với chữ cái, dấu gạch dưới (`_`), hoặc dấu dollar (`$`). Các ký tự tiếp theo có thể là số (`0`-`9`).
@@ -56,14 +56,14 @@ Bởi vì Javascript là case-sentitive, các chữ cái bao gồm các ký tự
 
 Một vài ví dụ cho tên hợp pháp là `Number_hits`, `temp99`, `$credit`, và `_name`.
 
-## Khai báo biến (Declaring variables)
+### Khai báo biến (Declaring variables)
 Bạn có thể khai báo một biến trong hai cách:
 * Với từ khóa `var`. Ví dụ `var x = 42`. Cú pháp này được có thể sử dụng để khai báo cho local variable và biến toàn cục (global variable), tùy thuộc vào bối cảnh thực thi.
 * Với từ khóa `let` hoặc `const`. Ví dụ `let y = 13`. Cú pháp này có thể được sử dụng để khai báo local variable trong block-scoped.
 
 Bạn cũng có thể đơn giản chỉ định một giá trị thành một biến. Ví dụ, `x = 42`. Cú pháp này tạo ra một biến toàn cầu chưa khai báo (undeclared global variable). Nó cũng tạo ra một cảnh báo Javascript nghiêm ngặt. Undeclared global variable có thể thường dẫn đến các hành vi không mong muốn. Do đó, không khuyến khích sử dụng undeclared global variable.
 
-## Đánh giá các biến
+### Đánh giá các biến
 Một biến được khai báo mà không gán giá trị thì được chỉ định với giá trị là `undefined`.
 
 Sự cố gắng truy cập một biến chưa được khai báo (undeclared variable) sẽ trả về một ngoại lệ (exception) `ReferenceError`.
@@ -117,7 +117,7 @@ var n = null;
 console.log(n * 32); // Sẽ trả về 0
 ```
 
-## Phạm vi biến (Variable scope)
+### Phạm vi biến (Variable scope)
 khi bạn khai báo một biến ở ngoài bất kỳ hàm nào, nó được gọi là global variable, bởi vì nó có sẵn cho bất kỳ đoạn code nào trong document hiện tại. Khi bạn khai báo một biến trong một hàm, nó gọi là local variable, bởi vì nó chỉ có sẵn trong hàm đó mà thôi.
 
 Javascript trước ECMAScript 2015 không có cú pháp phạm vi khối. Thay vào đó, một biến được khai báo trong một khối là cục bộ của hàm (hoặc phạm vi toàn cục) mà khối nằm trong đó.
@@ -140,7 +140,7 @@ if (true) {
 console.log(y);  // ReferenceError: y is not defined
 ```
 
-## Variable hoisting
+### Variable hoisting
 Một điều bất thường trong biến Javascript là bạn có thể gọi một biến trước khi nó được khai báo mà không xuất hiện một exception nào.
 
 Khái niệm này được biết đến là hoisting. Các biến trong Javascript, theo một nghĩa nào đó, được "hoisted" (hoặc "lifted") lên trên đầu của hàm hoặc câu lệnh. Tuy nhiên các biến được hoisted trả về giá trị là `undefined`. Thậm chí nếu bạn khai báo hoặc khởi tạo sau khi bạn sử dụng hoặc gọi biến này, nó vẫn trả về giá trị `undefined`.
@@ -195,7 +195,7 @@ console.log(x); // ReferenceError
 let x = 3;
 ```
 
-## Function hoisting
+### Function hoisting
 Trong trường hợp của hàm, chỉ có khai báo hàm (function declaration) là được hoisted, biểu thức hàm (function expression) thì không.
 
 ```js
@@ -217,14 +217,14 @@ var baz = function() {
 };
 ```
 
-## Global variables
+### Global variables
 Các global variable trong thực tế là các thuộc tính của global object.
 
 Trong trang web, global object là `window`, vì vậy bạn có thể thiết lập và truy cập các global variable thông qua cú pháp `window.variable`.
 
 Do đó, bạn có thể truy cập global variable được khai báo trong 1 window hoặc frame từ một window hoặc frame khác bằng cách chỉ định tên `window` hoặc `frame`. Chẳng hạn, nếu một biến có tên là `phoneNumber` trong document. Bạn có thể gọi đến biến này từ một frame với `parent.phoneNumber`.
 
-## Constant
+### Constant
 Bạn có thể tạo một biến chỉ để đọc, gọi là hằng số với từ khóa `const`.
 
 Cú pháp định danh một constant rất giống với bất kỳ định danh biến nào. Nó phải bắt đầu với chữ cái, dấu gạch dưới hoặc dấu dollar (`$`), và có thể chứa ký tự alphabet, số, và ký tự gạch dưới.
@@ -267,3 +267,5 @@ const MY_ARRAY = ['HTML','CSS'];
 MY_ARRAY.push('JAVASCRIPT');
 console.log(MY_ARRAY); // ['HTML','CSS','JAVASCRIPT'];
 ```
+
+## Cấu trúc dữ liệu và kiểu dữ liệu (Data structures and types)
