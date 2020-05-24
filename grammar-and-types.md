@@ -521,3 +521,30 @@ var obj = {
 };
 ```
 
+### RegExp literals
+Một regex literal là một pattern được bao quanh giữa dấu gạch chéo. Đây là ví dụ của một regex literal.
+
+```js
+var re = /ab+c/;
+```
+
+### String literals
+Một string literal là không hoặc nhiều ký tự bao quanh bởi dấu nháy kép (`"`) hoặc nháy đơn (`'`). Một chuỗi phải được phân định bởi dấu quote cùng loại (nghĩa là cả hai dấu nháy đơn, hoặc cả hai dấu kép).
+
+Sau đây là ví dụ về string literal:
+
+```js
+'foo'
+"bar"
+'1234'
+'one line \n another line'
+"John's cat"
+```
+
+Bạn có thể gọi mất kỳ method nào của `String` object trên một giá trị string literal. Javascript tự động chuyển đổi string literal thành một String object tạm, gọi các method, sau đó loại bỏ String object tạm đi. Bạn cũng có thể sử dụng thuộc tính `String.length` với một string literal:
+
+```js
+console.log("John's cat".length)  // 10.
+```
+
+Trong ES2015, template literals cũng có sẵn. Template literal được bao quanh bởi dấu back-tick (```) thay cho dấu nháy đơn hoặc nháy kép.
