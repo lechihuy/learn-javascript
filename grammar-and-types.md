@@ -551,4 +551,44 @@ Trong ES2015, template literals cũng có sẵn. Template literal được bao q
 
 Template string cung cấp cú pháp đặc biệt cho việc khởi tạo chuỗi. (Điều này giống như các tính năng string interpolation trong Perl, Python...)
 
+Tùy chọn, một thẻ có thể được thêm để cho phép string construction được tùy chỉnh, tránh tấn công injection hoặc xây dựng các cấu trúc dữ liệu cấp cao hơn từ nội dung chuỗi.
+
+```js
+// Khởi tạo string literal cơ bản
+`In JavaScript '\n' is a line-feed.`
+
+// Nhiều dòng string
+`In JavaScript, template strings can run
+ over multiple lines, but double and single
+ quoted strings cannot.`
+
+// String interpolation
+var name = 'Bob', time = 'today';
+`Hello ${name}, how are you ${time}?`
+
+// Xây dựng các tiền tồ HTTP request dùng để giải thích các thay thế và construction
+POST`http://foo.org/bar?a=${a}&b=${b}
+     Content-Type: application/json
+     X-Credentials: ${credentials}
+     { "foo": ${foo},
+       "bar": ${bar}}`(myOnReadyStateChangeHandler);
+```
+
+Bạn nên sử dụng string literal trừ khi bạn đặc biệt cần String object.
+
+### Sử dụng ký tự đặc biệt trong chuỗi
+Ngoài các ký tự thông thường, bạn cũng có thể bao gồm các ký tự đặc biệt trong chuỗi, như ví dụ bên dưới:
+
+```js
+'one line \n another line'
+```
+
+**Bảng: Các ký tự đặc biệt Javascript**
+Ký tự | Ý nghĩa
+----- | -------
+`\0` | Null Byte
+`\b` | Backspace
+`\f` | Form feed
+`\n` | New line
+
 
