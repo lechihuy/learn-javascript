@@ -402,3 +402,26 @@ let myList = ['home', , 'school', , ];
 Việc hiểu các hành vi của dấu phẩy thêm là quan trọng cho việc hiểu Javascript như một ngôn ngữ.
 
 Tuy nhiên, khi biết code của bạn, bạn nên khai báo rõ ràng các phần tử thiếu là `undefined`. Làm điều này sẽ tăng sự rõ ràng cho code của bạn và có khả năng bảo trì.
+
+### Boolean literals
+Loại Boolean có hai giá trị literal: `true` và `false`.
+
+> **Cẩn thận:** Đừng nhầm lẫn các giá trị primitive Boolean `true` và `false` với giá trị true và false của `Boolean` object.
+> Boolean object là một lớp bọc xung quanh kiểu dữ liệu primitive Boolean.
+
+### Numeric literals
+Kiểu `Number` và `BigInt` có thể bị khi lại trong decimal (cơ số 10), hexadecimal (cơ số 16), octal (cơ số 8) và binary (cơ số 2).
+
+* Một decimal numeric literal là một chuỗi các số mà không bắt đầu với `0`.
+* Số `0` dẫn đầu trên một numeric literal, hoặc dẫn đầu là `0o` (hoặc `0O`) biểu thị nó là một octal. Octal numeric có thể chỉ bao gồm các số `0`-`7`.
+* Dẫn đầu với `0x` (hoặc `0X`) biểu thị là một kiểu hexadecimal numeric. hexadecimal numeric có thể bao gồm các số (`0`-`9`) và các chữ cái `a`-`f` và `A`-`F`. (Trường hợp của một ký tự không thay đổi giá trĩ của nó. Vì thế: `0xa` = `0xA` = `10` và `0xf` = `0xF` = `15`).
+* Dẫn đầu với `0b` (hoặc `0B`) biểu thị cho một binary numeric literal. Binary numeric chỉ có thể bao gồm các số `0` và `1`.
+
+Một vài ví dụ cho các numeric literals là:
+
+```js
+0, 117, -345, 123456789123456789n             (decimal, base 10)
+015, 0001, -0o77, 0o777777777777n             (octal, base 8) 
+0x1123, 0x00111, -0xF1A7, 0x123456789ABCDEFn  (hexadecimal, "hex" or base 16)
+0b11, 0b0011, -0b11, 0b11101001010101010101n  (binary, base 2)
+```
