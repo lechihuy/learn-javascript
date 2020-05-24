@@ -311,7 +311,7 @@ y = 42 + ' is the answer' // "42 is the answer"
 
 Với các toán tử khác, Javascript không chuyển số thành chuỗi. Ví dụ:
 
-```js
+```
 '37' - 7 // 30
 '37' + 7 // "377"
 ```
@@ -332,7 +332,7 @@ parseInt('101', 2) // 5
 
 Một phương thúc thay thể cho việc nhận một số từ chỗi là sử dụng toán tử `+`:
 
-```js
+```
 '1.1' + '1.1' // '1.11.1'
 (+'1.1') + (+'1.1') // 2.2   
 // Chú ý: các dấu ngoặc đơn được thêm vào cho rõ ràng, không bắt buộc.
@@ -419,7 +419,7 @@ Kiểu `Number` và `BigInt` có thể bị khi lại trong decimal (cơ số 10
 
 Một vài ví dụ cho các numeric literals là:
 
-```js
+```
 0, 117, -345, 123456789123456789n             (decimal, base 10)
 015, 0001, -0o77, 0o777777777777n             (octal, base 8) 
 0x1123, 0x00111, -0xF1A7, 0x123456789ABCDEFn  (hexadecimal, "hex" or base 16)
@@ -438,13 +438,13 @@ Thành phần số mũ là một "`e`" hoặc "`E`" theo sau là một integer, 
 
 Ngắn gọn hơn, cú pháp là:
 
-```js
+```
 [(+|-)][digits].[digits][(E|e)[(+|-)]digits]
 ```
 
 Ví dụ:
 
-```js
+```
 3.1415926
 -.123456789
 -3.1E+12
@@ -533,7 +533,7 @@ Một string literal là không hoặc nhiều ký tự bao quanh bởi dấu nh
 
 Sau đây là ví dụ về string literal:
 
-```js
+```
 'foo'
 "bar"
 '1234'
@@ -557,7 +557,7 @@ Tùy chọn, một thẻ có thể được thêm để cho phép string constru
 // Khởi tạo string literal cơ bản
 `In JavaScript '\n' is a line-feed.`
 
-// Nhiều dòng string
+// Multiline string
 `In JavaScript, template strings can run
  over multiple lines, but double and single
  quoted strings cannot.`
@@ -586,9 +586,68 @@ Ngoài các ký tự thông thường, bạn cũng có thể bao gồm các ký 
 **Bảng: Các ký tự đặc biệt Javascript**
 Ký tự | Ý nghĩa
 ----- | -------
-`\0` | Null Byte
-`\b` | Backspace
-`\f` | Form feed
-`\n` | New line
+`\0` | Null Byte (ký tự khoảng trắng)
+`\b` | Backspace (xóa ký tự đứng bên trái nó)
+`\f` | Form feed (trên máy in, tải trang tiếp theo)
+`\n` | New line (xuống dòng mới)
+`\r` | Carriage return (xuống mới và xóa dòng trước đó)
+`\t` | Tab
+`\v` | Vertical tab (xuống dòng mới tại vị trí kết thúc của dòng trước đó)
+`\'` | Single quote (dấu nháy đơn)
+`\"` | Double quote (dấu nháy kép)
+`\\` | Backslash (dấu gạch chéo ngược)
+`\XXX` | Ký tự với kiểu mã hóa Latin-1 được chỉ định bởi ba số octal XXX từ `0` đến `377`. Ví dụ, `\251` là chuỗi octal cho biểu tượng copyright.
+`\xXX` | Ký tự với kiểu mã hóa Latin-1 được chỉ định bởi hai số hexadecimal XX từ `00` đến `FF`. Ví dụ, `\xA9` là chuỗi hexadecimal cho biểu tượng copyright.
+`uXXXX` | Ký tự Uncicode được chỉ định bởi bốn con số hexadecimal XXXX. Ví dụ, `\u00A9` là chuỗi Uncideo cho biểu tượng copyright.
+`u{XXXX}` | Unicode code point escapes. Ví dụ, `u{2F804}` tương tự với Unicode escape đơn giản `\uD87E\uDC04`.
 
+### Escaping characters
+Với các ký tự không được liệt kê trong bảng, dấu backslash có thể được bỏ qua, nhưng việc sử dụng này không được chấp thuận và nên tránh.
 
+Bạn có thể thêm một dấu nháy kép trong một chuỗi bằng cách đặt trước nó dấu backslash. Điều này được hiểu như escaping cho dấu nháy kép. Ví dụ:
+
+```js
+var quote = "He read \"The Cremation of Sam McGee\" by R.W. Service.";
+console.log(quote);
+```
+
+Kết quả nhận được sẽ là:
+```
+He read "The Cremation of Sam McGee" by R.W. Service.
+```
+
+Để bao gồm một dấu backslash trong chuỗi, bạn phải escaping dấu backslash. Ví dụ, để chỉ định đường dẫn file `c:\temp` trong một chuỗi, sử dụng như sau:
+
+```js
+var home = 'c:\\temp';
+```
+
+Bạn cũng có thể escape line break trong khi code bằng cách thêm trước chỗ muốn xuống dòng mới dấu backslash. Dấu backflash và line break đều bị xóa bỏ từ giá trị của chuỗi.
+
+```js
+var str = 'this string \
+is broken \
+across multiple \
+lines.'
+console.log(str);   // this string is broken across multiple lines.
+```
+
+Mặc dùng Javascript không có cú pháp "heredoc", bạn cũng có thể tiếp cận bằng cách thêm một line break escape và escaped line break tại cuối mỗi dòng:
+
+```js
+var poem = 
+'Roses are red,\n\
+Violets are blue.\n\
+Sugar is sweet,\n\
+and so is foo.'
+```
+
+ECMAScript 2015 giới thiệu một kiểu literal mới, với tên là template literal. Điều này cho phép nhiều tính năng mới, bao gồm multiline string.
+
+```js
+var poem = 
+`Roses are red, 
+Violets are blue. 
+Sugar is sweet, 
+and so is foo.` 
+```
