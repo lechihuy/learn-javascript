@@ -350,7 +350,7 @@ Literals đại diện các giá trị trong Javascript. Đó là các giá tr�
 * String literals
 
 ### Array literals
-Một array literals là một danh sách của không hoặc nhiều biểu thức, mỗi biểu thức đại diện cho một phần tử mảng, được bao quanh trong dấu ngoặc vuông (`[]`). Khi bạn tạo một mảng sử dụng một array literal, nó được khởi tạo với các giá trị đã chỉ định như các phần tử, và `length` của nó được đặt thành số lượng các đối số đã chỉ định.
+Một array literals là một danh sách trống hoặc nhiều biểu thức, mỗi biểu thức đại diện cho một phần tử mảng, được bao quanh trong dấu ngoặc vuông (`[]`). Khi bạn tạo một mảng sử dụng một array literal, nó được khởi tạo với các giá trị đã chỉ định như các phần tử, và `length` của nó được đặt thành số lượng các đối số đã chỉ định.
 
 Đoạn ví dụ sau tạo mảng `coffees` với ba phần tử và `length` là ba.
 
@@ -452,4 +452,35 @@ Ví dụ:
 ```
 
 ### Object literals
+Một object literal là một danh sách số trống hoặc nhiều cặp của các tên thuộc tính và các giá trị liên quan của một object, được bao quanh trong ngoặc nhọn (`{}`).
 
+> **Đừng sử dụng một object literal khi bắt đầu của một câu lệnh!** Điều này sẽ dẫn đến một lỗi (hoặc hành vi không mong đợi), bởi vì `{` sẽ được diễn giải như một bắt đầu của block.
+
+Theo dõi một ví dụ của object literal. Phần tử đầu tiên của object `car` định nghĩa một thuộc tính, `myCar`, và chỉ định nó một string mới, `"Saturn"`; phần tử thứ hai, thuộc tính `getCar`, ngay lập tức được chỉ định kết quả của một function `(carTypes("Honda"))`; phần tử thứ ba, thuộc tính `special`, sử dụng một biến đã tồn tại (`sales`).
+
+```js
+var sales = 'Toyota';
+
+function carTypes(name) {
+  if (name === 'Honda') {
+    return name;
+  } else {
+    return "Sorry, we don't sell " + name + ".";
+  }
+}
+
+var car = { myCar: 'Saturn', getCar: carTypes('Honda'), special: sales };
+
+console.log(car.myCar);   // Saturn
+console.log(car.getCar);  // Honda
+console.log(car.special); // Toyota 
+```
+
+Ngoài ra, bạn có thể sử dụng một numeric hoặc string literal cho tên của một thuộc tính hoặc lồng một object trong một object khác. Ví dụ sau sử dụng các tùy chọn này.
+
+```js
+var car = { manyCars: {a: 'Saab', b: 'Jeep'}, 7: 'Mazda' };
+
+console.log(car.manyCars.b); // Jeep
+console.log(car[7]); // Mazda
+```
