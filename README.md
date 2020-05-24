@@ -1,3 +1,3 @@
 # Mục lục
 
-* [Cấu trúc và kiểu dữ liệu](https://lechihuy.github.io/learn-javascript/grammar-and-types.html)
+* [Cấu trúc và kiểu dữ liệu](https://github.com/lechihuy/learn-javascript/blob/master/grammar-and-types.md)
