@@ -425,3 +425,31 @@ Một vài ví dụ cho các numeric literals là:
 0x1123, 0x00111, -0xF1A7, 0x123456789ABCDEFn  (hexadecimal, "hex" or base 16)
 0b11, 0b0011, -0b11, 0b11101001010101010101n  (binary, base 2)
 ```
+
+### Floating-point literals
+Một floating-point literal có thể có các phần sau:
+
+* Một decimal integer có thể được ký (trước "+" hoặc "-"),
+* Một decimal point ("`.`"),
+* Một phân số (số thập phân khác),
+* Một số mũ
+
+Thành phần số mũ là một "`e`" hoặc "`E`" theo sau là một integer, số có thể được ký (trước "+" hoặc "-"). Một floating-point literal phải có ít nhất một số, và hoặc một decimal point hoặc "`e`" (hoặc "`E`").
+
+Ngắn gọn hơn, cú pháp là:
+
+```js
+[(+|-)][digits].[digits][(E|e)[(+|-)]digits]
+```
+
+Ví dụ:
+
+```js
+3.1415926
+-.123456789
+-3.1E+12
+.1e-23
+```
+
+### Object literals
+
