@@ -484,3 +484,40 @@ var car = { manyCars: {a: 'Saab', b: 'Jeep'}, 7: 'Mazda' };
 console.log(car.manyCars.b); // Jeep
 console.log(car[7]); // Mazda
 ```
+
+Tên thuộc tính object có thẻ là bất kỳ chuỗi nào, bao gồm chuỗi trống. Nếu tên thuộc tính không phải là một định danh Javascript hợp lệ hoặc số, nó phải được bao quanh trong nháy kép hoặc nháy đơn.
+
+Tên thuộc tính không phải định danh hợp lệ thì không thể truy cập với dấu chấm (`.`), nhưng có thể truy cập và thiết lập giống như array ("`[]`").
+
+```js
+var unusualPropertyNames = {
+  '': 'An empty string',
+  '!': 'Bang!'
+}
+console.log(unusualPropertyNames.'');   // SyntaxError: Unexpected string
+console.log(unusualPropertyNames['']);  // Một chuỗi rỗng
+console.log(unusualPropertyNames.!);    // SyntaxError: Unexpected token !
+console.log(unusualPropertyNames['!']); // Bang!
+```
+
+### Enhanced Object literals
+Trong ES2015, object literal được mở rộng để hỗ trợ thiết lập thuộc tính tại construction, shorthand cho việc chỉ định `foo: foo`, định nghĩa phương thức, tạo cuộc gọi `super`, và xử lý các tên thuộc tính với biểu thức.
+
+Tóm lại, những điều này mang object literal và khai báo `class` gần nhau hơn và cho phép thiết kế object-based để hưởng lợi từ một vài tiện ích tương tự.
+
+```js
+var obj = {
+    // __proto__
+    __proto__: theProtoObj,
+    // Shorthand for ‘handler: handler’
+    handler,
+    // Methods
+    toString() {
+     // Super calls
+     return 'd ' + super.toString();
+    },
+    // Computed (dynamic) property names
+    [ 'prop_' + (() => 42)() ]: 42
+};
+```
+
