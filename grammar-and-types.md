@@ -547,4 +547,4 @@ Bạn có thể gọi mất kỳ method nào của `String` object trên một g
 console.log("John's cat".length)  // 10.
 ```
 
-Trong ES2015, template literals cũng có sẵn. Template literal được bao quanh bởi dấu back-tick (```) thay cho dấu nháy đơn hoặc nháy kép.
+Trong ES2015, template literals cũng có sẵn. Template literal được bao quanh bởi dấu back-tick (`) thay cho dấu nháy đơn hoặc nháy kép.
