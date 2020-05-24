@@ -584,6 +584,7 @@ Ngoài các ký tự thông thường, bạn cũng có thể bao gồm các ký 
 ```
 
 **Bảng: Các ký tự đặc biệt Javascript**
+
 Ký tự | Ý nghĩa
 ----- | -------
 `\0` | Null Byte (ký tự khoảng trắng)
