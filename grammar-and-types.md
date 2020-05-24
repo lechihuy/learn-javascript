@@ -548,3 +548,7 @@ console.log("John's cat".length)  // 10.
 ```
 
 Trong ES2015, template literals cũng có sẵn. Template literal được bao quanh bởi dấu back-tick (`) thay cho dấu nháy đơn hoặc nháy kép.
+
+Template string cung cấp cú pháp đặc biệt cho việc khởi tạo chuỗi. (Điều này giống như các tính năng string interpolation trong Perl, Python...)
+
+
