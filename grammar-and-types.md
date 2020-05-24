@@ -273,11 +273,11 @@ console.log(MY_ARRAY); // ['HTML','CSS','JAVASCRIPT'];
 ### Kiểu dữ liệu
 Tiêu chuẩn mới nhất của ECMAScript định nghĩa tám kiểu dữ liệu:
 * Bảy kiểu dữ liệu là primitives:
-  1. Boolean. `true` và `false`.
-  2. `null`. Một từ khóa đặc biệt để biểu thị một vô giá trị (Bởi vì Javascript là case-sentitive nên `null` không giống với `Null`, `NULL` hoặc bất kỳ biến thể nào.
-  3. `undefined`. Một thuộc tính cao cấp nhất có giá trị không xác định.
-  4. Number. Một số nguyên hoặc số thập phân, ví dụ `42` hoặc `3.14`.
-  5. BigInt. Một số nguyên có độ chính xác tùy ý, ví dụ `9007199254740992n`.
-  6. String. Một chuỗi các ký tự đại diện cho giá trị văn bản, ví dụ `"Howdy"`.
-  7. Symbol (mới trong ECMAScript 2015). Một kiểu dữ liệu khởi tạo là phiên bản duy nhất và bất biến.
+ 1. Boolean. `true` và `false`.
+ 2. `null`. Một từ khóa đặc biệt để biểu thị một vô giá trị (Bởi vì Javascript là case-sentitive nên `null` không giống với `Null`, `NULL` hoặc bất kỳ biến thể nào.
+ 3. `undefined`. Một thuộc tính cao cấp nhất có giá trị không xác định.
+ 4. Number. Một số nguyên hoặc số thập phân, ví dụ `42` hoặc `3.14`.
+ 5. BigInt. Một số nguyên có độ chính xác tùy ý, ví dụ `9007199254740992n`.
+ 6. String. Một chuỗi các ký tự đại diện cho giá trị văn bản, ví dụ `"Howdy"`.
+ 7. Symbol (mới trong ECMAScript 2015). Một kiểu dữ liệu khởi tạo là phiên bản duy nhất và bất biến.
 * và Object
