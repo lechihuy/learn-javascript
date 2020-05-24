@@ -318,8 +318,10 @@ Với các toán tử khác, Javascript không chuyển số thành chuỗi. Ví
 
 ### Chuyển chuỗi thành số
 Trong trường hợp một giá trị đại diện cho một số được lưu dưới dạng chuỗi, có nhiều phương phương thức để chuyển đổi.
+
 * `parseInt()`
 * `parseFloat()`
+
 `parseInt` chỉ trả về các số nguyên, vì vậy nó sử dụng để làm tròn số thập phân.
 
 > Ngoài ra, một thực tế tốt cho `parseInt` là luôn luôn bao gồm tham số *radix* (cơ số). Tham số *radix* được sử dụng để chỉ định hệ thống số nào sẽ được sử dụng.
@@ -335,3 +337,68 @@ Một phương thúc thay thể cho việc nhận một số từ chỗi là s�
 (+'1.1') + (+'1.1') // 2.2   
 // Chú ý: các dấu ngoặc đơn được thêm vào cho rõ ràng, không bắt buộc.
 ```
+
+## Literals
+Literals đại diện các giá trị trong Javascript. Đó là các giá trị cố định - không phải biến - thứ mà bạn thực sự cung cấp trong script. Phần này mô tả các loại literal bên dưới:
+
+* Array literals
+* Boolean literals
+* Floating-point literals
+* Numeric literals
+* Object literals
+* RegExp literals
+* String literals
+
+### Array literals
+Một array literals là một danh sách của không hoặc nhiều biểu thức, mỗi biểu thức đại diện cho một phần tử mảng, được bao quanh trong dấu ngoặc vuông (`[]`). Khi bạn tạo một mảng sử dụng một array literal, nó được khởi tạo với các giá trị đã chỉ định như các phần tử, và `length` của nó được đặt thành số lượng các đối số đã chỉ định.
+
+Đoạn ví dụ sau tạo mảng `coffees` với ba phần tử và `length` là ba.
+
+```js
+let coffees = ['French Roast', 'Colombian', 'Kona'];
+```
+
+> **Chú ý:** Một array literal là một kiểu đối tượng khởi tạo.
+
+Nếu một mảng được tạo bằng cách sử dụng literal trong script cấp cao nhất, Javascript diễn giải mảng này mỗi khi nó đánh giá biểu thức chứa array literal. Ngoài ra, một literal được sử dụng trong một hàm được tạo mỗi lần function đó được gọi.
+
+> **Chú ý:** Array literal cũng là `Array` object.
+
+#### Dấu phẩy thêm trong array literals
+Bạn không phải chỉ định tất cả phần tử trong một array literal. Nếu bạn đặt hai dấu phẩy trong một hàng, mảng này điền vào giá trị `undefined` cho các phần tử không chỉ định. Ví dụ sau tạo mảng `fish`:
+
+```js
+let fish = ['Lion', , 'Angel'];
+```
+
+Mảng này có hai phần tử có giá trị và một phần tử trống:
+
+* `fish[0]` là "Lion"
+* `fish[1]` là `undefined`
+* `fish[2]` là "Angel"
+
+Nếu bạn bao gồm một dấu phẩy tại vị trí cuối của danh sách phần tử, nó sẽ bị bỏ qua.
+
+Trong ví dụ sau, `length` của mảng là ba. Không có `myList[3]`. Tất cả các dấu phẩy khác trong danh sách biểu thị cho một phần tử mới.
+
+> **Chú ý:** Dấu phẩu có thể tạo ra lỗi trong các phiên bản trình duyệt cũ và thực tế tốt nhất là loại bỏ chúng.
+
+```js
+let myList = ['home', , 'school', ];
+```
+
+Trong ví dụ sau, `length` của mảng là bốn, và `myList[0]` và `myList[2]` là còn thiếu.
+
+```js
+let myList = [ ,'home', , 'school'];
+```
+
+Trong ví dụ sau, `length` của mảng là bốn, và `myList[1]` và `myList[3]` là còn thiếu. **Chỉ dấu phẩu cuối cùng bị bỏ qua**.
+
+```js
+let myList = ['home', , 'school', , ];
+```
+
+Việc hiểu các hành vi của dấu phẩy thêm là quan trọng cho việc hiểu Javascript như một ngôn ngữ.
+
+Tuy nhiên, khi biết code của bạn, bạn nên khai báo rõ ràng các phần tử thiếu là `undefined`. Làm điều này sẽ tăng sự rõ ràng cho code của bạn và có khả năng bảo trì.
