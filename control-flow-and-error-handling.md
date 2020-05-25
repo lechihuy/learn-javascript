@@ -122,6 +122,7 @@ Tất cả các giá trị khác - bao gồm tất cả các object - được x
 > ```js
 > var b = new Boolean(false);
 > if (b)         // điều kiện này trả về true
+> if (b == true) // điều kiện này trả về false
 > ```
 
 ### Ví dụ
@@ -139,4 +140,4 @@ function checkData() {
   }
 }
 ```
-> if (b == true) // điều kiện này trả về false
+
