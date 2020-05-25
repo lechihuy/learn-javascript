@@ -1,4 +1,4 @@
-# Điều khiển luồng và xử lý lỗi
+# Control flow and error handling
 
 Javascript hỗ trợ một tập hợp các câu lệnh ngắn gọn, đặc biệt là các câu lệnh điều khiển luồng, thứ mà bạn có thể sử dụng để kết hợp nhiều tính tương tác trong ứng dụng của mình. Chương này cung cấp một cái nhìn tổng quan về các câu lệnh này.
 
