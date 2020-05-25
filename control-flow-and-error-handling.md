@@ -141,3 +141,30 @@ function checkData() {
 }
 ```
 
+## `switch` statement
+`switch` statement cho phép chương trình có thể đánh giá một biểu thức và cố gắng match giá trị của biểu thức với `case` label. Nếu match được tìm thấy, chương trình thực thi câu lệnh liên quan.
+
+Một `switch` statement trông như sau:
+
+```js
+switch (expression) {
+  case label_1:
+    statements_1
+    [break;]
+  case label_2:
+    statements_2
+    [break;]
+    …
+  default:
+    statements_def
+    [break;]
+}
+```
+
+Javascript đánh giá switch statement trên như sau:
+
+- Chương trình tìm kiếm mệnh đề `case` đầu tiên với label match giá trị của biểu thức và sau đó chuyển quyền kiểm soát sang mệnh đề đó, thực thi các câu lệnh liên quan.
+- Nếu không match label nào, chương trình sẽ tìm kiếm mệnh đề tùy chọn `default`:
+  - Nếu mệnh đề `default` được tìm thấy, chương trình chuyển quyền kiểm soát cho mệnh đề, thực thi các câu lệnh liên quan.
+  - Nếu không tìm thấy mệnh đề `default`, chương trình sẽ tiếp túc thực hiện các câu lệnh bên dưới sau khi kết thúc `switch`.
+  - (Theo quy ước, mệnh đề `default` được viết như là mệnh đề cuối cùng, nhưng nó không cần phải như vậy.)
