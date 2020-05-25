@@ -200,3 +200,59 @@ switch (fruittype) {
 }
 console.log("Is there anything else you'd like?");
 ```
+
+## Exception handling statements
+Bạn có thể ném các exception sử dụng `throw` statement và xử lý chúng bằng cách sử dụng `try...catch` statement.
+
+* `throw` statement
+* `try...catch` statement
+
+### Exception types
+Bất kỳ đối tượng nào cũng có thể throw trong Javascript. Tuy nhiên, không phải tất cả thrown object được tạo ra bằng nhau. Trong khi thông thường là ném các số hoặc chuỗi như các lỗi, nhưng thường hiệu quả hơn để sử dụng một loại exception đặc biệt được tạo ra cho mục đích này.
+
+* ECMAScript exceptions
+* `DOMException` và `DOMError`
+
+### `throw` statement
+Sử dụng `throw` statement để throw một exception. `throw` statement chỉ định giá trị được throw.
+
+```js
+throw expression;
+```
+
+Bạn có thể ném bất kỳ expression nào, không chỉ expression của các loại cụ thể. Đoạn code dưới đây throw các exception của nhiều loại:
+
+```js
+throw 'Error2';   // String type
+throw 42;         // Number type
+throw true;       // Boolean type
+throw {toString: function() { return "I'm an object!"; } };
+```
+
+> **Chú ý:** Bạn có thể chỉ định một object khi bạn throw một exception. Sau đó bạn có thể gọi các thuộc tính object trong `catch` block.
+
+```js
+// Khởi tạo một object loại UserException
+function UserException(message) {
+  this.message = message;
+  this.name = 'UserException';
+}
+
+// Tạo exception chuyển đổi thành chuỗi khi sử dụng dưới dạng chuỗi
+// (e.g., by the error console)
+UserException.prototype.toString = function() {
+  return `${this.name}: "${this.message}"`;
+}
+
+// Tạo một khởi tạo của loại object và throw nó
+throw new UserException('Value too high');
+```
+
+### `try...catch` statement
+`try...catch` statement đánh dấu một khối lệnh để thử, và chỉ định một hoặc nhiều response nên là một exception được throw. Nếu một exception được throw, `try...catch` statement sẽ bắt nó.
+
+`try...catch` statement bao gồm một `try` block, nó sẽ chứa một hoặc nhiều câu lệnh, và một `catch` block, chứa các câu lệnh chỉ định phải làm gì nếu một exception được throw trong `try` block.
+
+Nói cách khác, bạn muốn `try` block thành công - nhưng nếu nó không vậy, bạn sẽ phải  kiểm soát để vượt qua `catch` block. Nếu bất kỳ câu lệnh nào trong `try` block (hoặc trong một function ở trong `try` block) throw một exception, kiểm soát ngay lập tức chuyển sang `catch ` block. Nếu không có exception được throw trong `try` block, `catch` block sẽ bị bỏ qua. `finally` block thực thi sau khi `try` và `catch` block thực thi nhưng trước các câu lệnh bên dưới `try...catch` statement.
+
+Ví dụ dưới đây sử dụng `try...catch` statement. Ví dụ này gọi một function lấy tên một tháng từ một mảng dựa trên giá trị được truyền vào hàm. Nếu giá trị không tương ứng với số một tháng (`1`-`12`), một exception sẽ được throw với giá trị `"InvalidMonthNo"` và các câu lệnh trong `catch` block đặt biến `monthName` thành `'unknown'`.
