@@ -161,7 +161,7 @@ switch (expression) {
 }
 ```
 
-Javascript đánh giá switch statement trên như sau:
+Javascript đánh giá `switch` statement trên như sau:
 
 - Chương trình tìm kiếm mệnh đề `case` đầu tiên với label match giá trị của biểu thức và sau đó chuyển quyền kiểm soát sang mệnh đề đó, thực thi các câu lệnh liên quan.
 - Nếu không match label nào, chương trình sẽ tìm kiếm mệnh đề tùy chọn `default`:
