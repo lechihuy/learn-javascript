@@ -168,3 +168,35 @@ Javascript đánh giá `switch` statement trên như sau:
   - Nếu mệnh đề `default` được tìm thấy, chương trình chuyển quyền kiểm soát cho mệnh đề, thực thi các câu lệnh liên quan.
   - Nếu không tìm thấy mệnh đề `default`, chương trình sẽ tiếp túc thực hiện các câu lệnh bên dưới sau khi kết thúc `switch`.
   - (Theo quy ước, mệnh đề `default` được viết như là mệnh đề cuối cùng, nhưng nó không cần phải như vậy.)
+  
+### `break` statements
+Câu lệnh tùy chọn `break` liên quan đến mỗi mệnh đề `case` để đảm bảm chương trình thoát ra `switch` mỗi lần matched statement được thực thi, và sau đó tie16p ực thực hiện các câu lệnh bên dưới `switch`. Nếu `break` bị bỏ qua, chương trình sẽ tiếp tục thực hiện bên trong `switch` statement (và sẽ đánh giá `case` tiếp theo, và cứ thế).
+
+#### Ví dụ
+Trong ví dụ dưới đây, nếu `fruittype` có giá trị là `'Bananas'`, chương trình match giá trị này với case `'Bananas'` và thực thi các câu lệnh liên quan. Khi gặp tới `break`, chương trình thoát `switch` và tiếp tực thực hiện các statement sau `switch`. Nếu `break` bị bỏ qua, câu lệnh `case 'Cherries'` cũng sẽ được thực thi. 
+
+```js
+switch (fruittype) {
+  case 'Oranges':
+    console.log('Oranges are $0.59 a pound.');
+    break;
+  case 'Apples':
+    console.log('Apples are $0.32 a pound.');
+    break;
+  case 'Bananas':
+    console.log('Bananas are $0.48 a pound.');
+    break;
+  case 'Cherries':
+    console.log('Cherries are $3.00 a pound.');
+    break;
+  case 'Mangoes':
+    console.log('Mangoes are $0.56 a pound.');
+    break;
+  case 'Papayas':
+    console.log('Mangoes and papayas are $2.79 a pound.');
+    break;
+  default:
+   console.log(`Sorry, we are out of ${fruittype}.`);
+}
+console.log("Is there anything else you'd like?");
+```
