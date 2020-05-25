@@ -1,4 +1,4 @@
-# Cấu trúc và kiểu dữ liệu
+# Grammar and types
 Chương này nói về cấu trúc cơ bản của Javascript, các kiểu khai báo, kiểu dữ liệu và literal.
 
 ## Cơ bản
