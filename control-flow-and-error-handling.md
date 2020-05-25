@@ -26,9 +26,7 @@ while (x < 10) {
 Đây, `{ x++ }` là một block statement.
 
 > **Quan trọng:** Javscript trước ECMAScript 2015 (lần chỉnh sửa thứ 6) không có block scope! Trong Javascript cũ hơn, biến được giới thiệu trong một block được đặt trong phạm vi function hoặc script, và các hiệu ứng thiết lập chúng vẫn còn tồn tại ngoài block. Nói cách khác, block statement không định nghĩa một scope.
-
 > Các block "độc lập" trong Javascript có thể tạo ra kết quả hoàn toàn khác so với những gì chúng sẽ tạo ra trong C hoặc Java. Ví dụ:
-
 > ```js
 > var x = 1;
 > {
