@@ -260,21 +260,21 @@ Ví dụ dưới đây sử dụng `try...catch` statement. Ví dụ này gọi 
 
 ```js
 function getMonthName(mo) {
-  mo = mo - 1; // Adjust month number for array index (1 = Jan, 12 = Dec)
+  mo = mo - 1; // Điều chỉnh số tháng cho array index (1 = Jan, 12 = Dec)
   let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
                 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   if (months[mo]) {
     return months[mo];
   } else {
-    throw 'InvalidMonthNo'; // throw keyword is used here
+    throw 'InvalidMonthNo'; // throw từ khóa được sử dụng tại đây
   }
 }
 
 try { // statements to try
-  monthName = getMonthName(myMonth); // function could throw exception
+  monthName = getMonthName(myMonth); // function có thể throw exception
 }
 catch (e) {
   monthName = 'unknown';
-  logMyErrors(e); // pass exception object to error handler (i.e. your own function)
+  logMyErrors(e); // truyền exception object để xử lý lỗi
 }
 ```
