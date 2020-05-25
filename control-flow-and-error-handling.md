@@ -256,3 +256,25 @@ throw new UserException('Value too high');
 Nói cách khác, bạn muốn `try` block thành công - nhưng nếu nó không vậy, bạn sẽ phải  kiểm soát để vượt qua `catch` block. Nếu bất kỳ câu lệnh nào trong `try` block (hoặc trong một function ở trong `try` block) throw một exception, kiểm soát ngay lập tức chuyển sang `catch ` block. Nếu không có exception được throw trong `try` block, `catch` block sẽ bị bỏ qua. `finally` block thực thi sau khi `try` và `catch` block thực thi nhưng trước các câu lệnh bên dưới `try...catch` statement.
 
 Ví dụ dưới đây sử dụng `try...catch` statement. Ví dụ này gọi một function lấy tên một tháng từ một mảng dựa trên giá trị được truyền vào hàm. Nếu giá trị không tương ứng với số một tháng (`1`-`12`), một exception sẽ được throw với giá trị `"InvalidMonthNo"` và các câu lệnh trong `catch` block đặt biến `monthName` thành `'unknown'`.
+
+
+```js
+function getMonthName(mo) {
+  mo = mo - 1; // Adjust month number for array index (1 = Jan, 12 = Dec)
+  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+                'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  if (months[mo]) {
+    return months[mo];
+  } else {
+    throw 'InvalidMonthNo'; // throw keyword is used here
+  }
+}
+
+try { // statements to try
+  monthName = getMonthName(myMonth); // function could throw exception
+}
+catch (e) {
+  monthName = 'unknown';
+  logMyErrors(e); // pass exception object to error handler (i.e. your own function)
+}
+```
