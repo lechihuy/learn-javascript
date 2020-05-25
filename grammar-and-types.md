@@ -17,9 +17,9 @@ Một dấu chẩm phẩy là không cần thiết sau mỗi câu lệnh nếu n
 
 > ECMAScript, một chuẩn hóa ngôn ngữ client, cũng ràng buộc tự động thêm các dấu chấm phẩy để kết thúc câu lệnh.
 
-Nó được xem xét như là thực tiễn tốt nhất, tuy nhiên, luôn luôn viết một dấu chấm phẩy sau mỗi câu lệnh, thậm chí khi nó không thật sự cần thiết. Điều này giảm thiếu cơ hội các lỗi trong lập trình (bug) đến với code của bạn.
+Nó được xem xét như best practice, luôn luôn viết một dấu chấm phẩy sau mỗi câu lệnh, thậm chí khi nó không thật sự cần thiết. Điều này giảm thiếu bug trong code của bạn.
 
-Code Javascript được quét từ trái sang phải, và được chuyển thành một chuỗi các yếu tố đầu vào như token, ký tự điều khiển (control characters), dấu kết thúc dòng (line terminators), chú thích (comments) hoặc whitespace (Khoảng trắng, tab và ký tự dòng mới được xem là whitespace).
+Code Javascript được quét từ trái sang phải, và được chuyển thành một chuỗi các yếu tố đầu vào như token, control characters, line terminators, comments hoặc whitespace (Khoảng trắng, tab và ký tự dòng mới được xem là whitespace).
 
 ## Comments
 Cú pháp comment giống với C++ cũng như nhiều ngôn ngữ khác:
@@ -32,7 +32,7 @@ Cú pháp comment giống với C++ cũng như nhiều ngôn ngữ khác:
  */
 ```
 
-Các comment hành xử như whitespace và bị loại bỏ trong quá trình thực thi code.
+Các comment xem như whitespace và bị loại bỏ trong quá trình thực thi code.
 
 > **Chú ý:** Bạn có thể cũng thấy một loại cú pháp comment thứ ba tại phần bắt đầu của một vài file Javascript, trông như thế này `#!/usr/bin/env node`.
 >
@@ -43,12 +43,12 @@ Javascript có ba kiểu khai báo
 
 `var`: khởi tạo một biến (variable), tùy chọn khởi tạo nó thành một giá trị.
 
-`let`: khởi tạo một khối phạm vi (block-scoped), biến cục bộ (local variable), tùy chọn khởi tạo nó thành một giá trị.
+`let`: khởi tạo một khối phạm vi (block-scoped), local variable, tùy chọn khởi tạo nó thành một giá trị.
 
 `const`: khởi tạo một block-scoped, chỉ được đọc gọi là hằng số (constant).
 
 ### Variables
-Bạn sử dụng biến như các tên tượng trưng cho giá trị cho ứng dụng. Các tên của biến, được gọi là định danh (identifiers), tuân thủ các nguyên tắc nhất định.
+Bạn sử dụng biến như các tên tượng trưng cho giá trị trong ứng dụng. Các tên của biến, được gọi là định danh (identifier), tuân thủ các nguyên tắc nhất định.
 
 Định danh Javascript nên bắt đầu với chữ cái, dấu gạch dưới (`_`), hoặc dấu dollar (`$`). Các ký tự tiếp theo có thể là số (`0`-`9`).
 
@@ -58,15 +58,15 @@ Một vài ví dụ cho tên hợp pháp là `Number_hits`, `temp99`, `$credit`,
 
 ### Khai báo biến (Declaring variables)
 Bạn có thể khai báo một biến trong hai cách:
-* Với từ khóa `var`. Ví dụ `var x = 42`. Cú pháp này được có thể sử dụng để khai báo cho local variable và biến toàn cục (global variable), tùy thuộc vào bối cảnh thực thi.
+* Với từ khóa `var`. Ví dụ `var x = 42`. Cú pháp này được có thể sử dụng để khai báo cho local variable và global variable, tùy thuộc vào bối cảnh thực thi.
 * Với từ khóa `let` hoặc `const`. Ví dụ `let y = 13`. Cú pháp này có thể được sử dụng để khai báo local variable trong block-scoped.
 
-Bạn cũng có thể đơn giản chỉ định một giá trị thành một biến. Ví dụ, `x = 42`. Cú pháp này tạo ra một biến toàn cầu chưa khai báo (undeclared global variable). Nó cũng tạo ra một cảnh báo Javascript nghiêm ngặt. Undeclared global variable có thể thường dẫn đến các hành vi không mong muốn. Do đó, không khuyến khích sử dụng undeclared global variable.
+Bạn cũng có thể đơn giản chỉ định một giá trị thành một biến. Ví dụ, `x = 42`. Cú pháp này tạo ra một undeclared global variable. Nó cũng tạo ra một cảnh báo Javascript nghiêm ngặt. Undeclared global variable có thể thường dẫn đến các hành vi không mong muốn. Do đó, không khuyến khích sử dụng undeclared global variable.
 
 ### Đánh giá các biến
 Một biến được khai báo mà không gán giá trị thì được chỉ định với giá trị là `undefined`.
 
-Sự cố gắng truy cập một biến chưa được khai báo (undeclared variable) sẽ trả về một ngoại lệ (exception) `ReferenceError`.
+Sự cố gắng truy cập một undeclared variable sẽ trả về một `ReferenceError` exception.
 
 ```js
 var a;
@@ -96,7 +96,7 @@ if (input === undefined) {
 }
 ```
 
-Giá trị `undefined` được xem là `false` khi sử dụng trong bối cảnh boolean (boolean context). Ví dụ, đoạn code này thực thi hàm `myFunction` bởi vì phần tử `myArray` là `undefined`.
+Giá trị `undefined` được xem là `false` khi sử dụng trong boolean context. Ví dụ, đoạn code này thực thi hàm `myFunction` bởi vì phần tử `myArray` là `undefined`.
 
 ```js
 var myArray = [];
@@ -120,7 +120,7 @@ console.log(n * 32); // Sẽ trả về 0
 ### Phạm vi biến (Variable scope)
 khi bạn khai báo một biến ở ngoài bất kỳ hàm nào, nó được gọi là global variable, bởi vì nó có sẵn cho bất kỳ đoạn code nào trong document hiện tại. Khi bạn khai báo một biến trong một hàm, nó gọi là local variable, bởi vì nó chỉ có sẵn trong hàm đó mà thôi.
 
-Javascript trước ECMAScript 2015 không có cú pháp phạm vi khối. Thay vào đó, một biến được khai báo trong một khối là cục bộ của hàm (hoặc phạm vi toàn cục) mà khối nằm trong đó.
+Javascript trước ECMAScript 2015 không có cú pháp block scope. Thay vào đó, một biến được khai báo trong một block là local của hàm (hoặc global scope) mà block nằm trong đó.
 
 Chẳng hạn, đoạn code này sẽ trả về `5`, bởi vì phạm vị của biến `x` là global context (hoặc function context nếu code đó là một phần của hàm). Phạm vi của `x` là không giới hạn ở khối lệnh `if` luôn đúng này.
 
@@ -196,7 +196,7 @@ let x = 3;
 ```
 
 ### Function hoisting
-Trong trường hợp của hàm, chỉ có khai báo hàm (function declaration) là được hoisted, biểu thức hàm (function expression) thì không.
+Trong trường hợp của hàm, chỉ có function declaration là được hoisted, function expression thì không.
 
 ```js
 /* Function declaration */
@@ -233,9 +233,9 @@ Cú pháp định danh một constant rất giống với bất kỳ định dan
 const PI = 3.14;
 ```
 
-Một constant không thể thay đổi giá trị thông qua phép gán hoặc khai báo lại trong suốt kịch bản đang chạy. Nó bắt buộc phải được khởi tạo với một giá trị.
+Một constant không thể thay đổi giá trị thông qua phép gán hoặc khai báo lại trong suốt script đang chạy. Nó bắt buộc phải được khởi tạo với một giá trị.
 
-Nguyên tắc phạm vi của constant cũng tương tự như phạm vi biến `let`. Nếu từ khóa `const` bị bỏ qua, định danh được coi là đại diện một undeclared variable.
+Nguyên tắc phạm vi của constant cũng tương tự như phạm vi biến `let`. Nếu từ khóa `const` bị bỏ qua, identifier được coi là đại diện một undeclared variable.
 
 Bạn không thể khai báo một constant với tên giống với một hàm hoặc một biến trong cùng một phạm vi.
 
@@ -282,7 +282,7 @@ Tiêu chuẩn mới nhất của ECMAScript định nghĩa tám kiểu dữ li�
  7. Symbol (mới trong ECMAScript 2015). Một kiểu dữ liệu khởi tạo là phiên bản duy nhất và bất biến.
 - và Object
 
-Mặc dù các kiểu dữ liệu này tương đối ít, nhưng chúng cho phép bạn thực hiện các hàm hữu ích trong ứng dụng của bạn. `Objects` và `functions` là các yếu tố cơ bản trong ngôn ngữ. Bạn có thể nghĩ object như các container của giá trị, và hàm như thủ tục mà script của bạn phải thực hiện.
+Mặc dù các kiểu dữ liệu này tương đối ít, nhưng chúng cho phép bạn thực hiện các hàm hữu ích trong ứng dụng của bạn. `Objects` và `functions` là các yếu tố cơ bản trong ngôn ngữ. Bạn có thể nghĩ object như các container của giá trị, và function như thủ tục mà script của bạn phải thực hiện.
 
 ### Bộ chuyển đổi kiểu dữ liệu
 Javascript là ngôn ngữ kiểu dữ liệu động. Điều này có nghĩa là bạn không cần phải chỉ định kiểu dữ liệu cho một biến khi bạn khai báo nó. Điều này cũng có nghĩa là các kiểu dữ liệu được tự động chuyển đổi khi cần thiết trong suốt quá trình script thực thi.
@@ -324,13 +324,13 @@ Trong trường hợp một giá trị đại diện cho một số được lư
 
 `parseInt` chỉ trả về các số nguyên, vì vậy nó sử dụng để làm tròn số thập phân.
 
-> Ngoài ra, một thực tế tốt cho `parseInt` là luôn luôn bao gồm tham số *radix* (cơ số). Tham số *radix* được sử dụng để chỉ định hệ thống số nào sẽ được sử dụng.
+> Ngoài ra, best practice cho `parseInt` là luôn luôn bao gồm tham số *radix* (cơ số). Tham số *radix* được sử dụng để chỉ định hệ thống số nào sẽ được sử dụng.
 
 ```js
 parseInt('101', 2) // 5
 ```
 
-Một phương thúc thay thể cho việc nhận một số từ chỗi là sử dụng toán tử `+`:
+Một phương thúc thay thể cho việc nhận một số từ chuỗi là sử dụng toán tử `+`:
 
 ```
 '1.1' + '1.1' // '1.11.1'
@@ -350,7 +350,7 @@ Literals đại diện các giá trị trong Javascript. Đó là các giá tr�
 * String literals
 
 ### Array literals
-Một array literals là một danh sách trống hoặc nhiều biểu thức, mỗi biểu thức đại diện cho một phần tử mảng, được bao quanh trong dấu ngoặc vuông (`[]`). Khi bạn tạo một mảng sử dụng một array literal, nó được khởi tạo với các giá trị đã chỉ định như các phần tử, và `length` của nó được đặt thành số lượng các đối số đã chỉ định.
+Một array literals là một danh sách trống hoặc nhiều expression, mỗi expression đại diện cho một phần tử mảng, được bao quanh trong dấu ngoặc vuông (`[]`). Khi bạn tạo một mảng sử dụng một array literal, nó được khởi tạo với các giá trị đã chỉ định như các phần tử, và `length` của nó được đặt thành số lượng các đối số đã chỉ định.
 
 Đoạn ví dụ sau tạo mảng `coffees` với ba phần tử và `length` là ba.
 
@@ -360,7 +360,7 @@ let coffees = ['French Roast', 'Colombian', 'Kona'];
 
 > **Chú ý:** Một array literal là một kiểu đối tượng khởi tạo.
 
-Nếu một mảng được tạo bằng cách sử dụng literal trong script cấp cao nhất, Javascript diễn giải mảng này mỗi khi nó đánh giá biểu thức chứa array literal. Ngoài ra, một literal được sử dụng trong một hàm được tạo mỗi lần function đó được gọi.
+Nếu một mảng được tạo bằng cách sử dụng literal trong script cấp cao nhất, Javascript diễn giải mảng này mỗi khi nó đánh giá biểu thức chứa array literal. Ngoài ra, một literal được sử dụng trong một function được tạo mỗi lần function đó được gọi.
 
 > **Chú ý:** Array literal cũng là `Array` object.
 
